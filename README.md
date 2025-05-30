@@ -44,7 +44,7 @@
 ai-service/
   ├── main.py              # FastAPI app for AI inference
   ├── llama_infer.py       # LLM inference logic (Groq API)
-  ├── schema_prompter.py   # Prompt engineering for SQL generation
+  ├── schema_prompter.py   # SQL generation
   ├── requirements.txt     # Python dependencies
   └── .env                 # Groq API key
 
