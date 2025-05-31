@@ -31,7 +31,7 @@ const redis=new Redis(process.env.REDIS_URL);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'http://localhost:5173 || https://sqlgen-ai.vercel.app/',
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type'], 
   credentials: true 
