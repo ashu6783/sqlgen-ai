@@ -12,6 +12,8 @@
 - **Live Query Execution**: Run generated SQL directly on your MySQL database and view results.
 - **Modern UI**: Responsive, beautiful interface built with React, Tailwind CSS, and Lucide icons.
 - **Secure & Configurable**: Environment-based configuration, secure credential handling, and robust error reporting.
+- **Swagger API Docs**: Interactive API documentation for backend endpoints.
+- **Docker Support**: Easily run backend and AI service in containers.
 
 ---
 
@@ -22,13 +24,6 @@
 |  Frontend | <----> |   Node.js Backend | <----> |   FastAPI Service | <----> |   Groq/CodeLlama  |
 |  (React)  |        |   (Express.js)    |        |   (Python)        |        |   (LLM Inference) |
 +-----------+        +-------------------+        +-------------------+        +-------------------+
-      |                        |                          |                          |
-      |                        |                          |                          |
-      |                        |                          |                          |
-      |                        |                          |                          |
-      |                        |                          |                          |
-      |                        |                          |                          |
-      |                        |                          |                          |
       |                        |                          |                          |
       v                        v                          v                          v
 +-------------------+   +-------------------+   +-------------------+   +-------------------+
@@ -57,7 +52,10 @@ server/
   │       ├── schema.js    # /schema endpoint (DB schema as JSON)
   │       └── getSchema.js # Schema extraction logic
   ├── package.json         # Node dependencies
-  └── .env                 # MySQL credentials
+  ├── Dockerfile           # Docker build for backend
+  ├── compose.yaml         # Docker Compose for backend
+  ├── cert/                # SSL certificates
+  └── .env                 # MySQL/Redis credentials
 
 client/
   ├── src/
@@ -137,6 +135,7 @@ MYSQL_PASSWORD=your-mysql-password
 MYSQL_DATABASE=your-database
 MYSQL_PORT=your-mysql-port
 AI_SERVICE_URL=http://localhost:8000
+REDIS_URL=redis://default:password@host:port
 ```
 
 ### `ai-service/.env`
@@ -158,6 +157,9 @@ SCHEMA_API_URL=http://localhost:5000
 - `GET /schema`  
   Returns the current database schema as JSON.
 
+- **Swagger Docs:**  
+  Visit [http://localhost:5000/api-docs](http://localhost:5000/api-docs) for interactive API documentation.
+
 ### AI Service (FastAPI)
 
 - `POST /generate`  
@@ -169,11 +171,35 @@ SCHEMA_API_URL=http://localhost:5000
 
 ---
 
-## Customization
+## Docker Usage
 
-- **Schema Extraction**: The backend auto-discovers tables, columns, and foreign keys.
-- **Prompt Engineering**: Edit [`schema_prompter.py`](ai-service/schema_prompter.py) for custom prompt logic.
-- **Frontend Styling**: Tweak Tailwind classes in React components for a custom look.
+### Backend (Express.js)
+
+Build and run the backend using Docker Compose:
+
+```sh
+cd server
+docker compose up --build
+```
+
+- The backend will be available at [http://localhost:5000](http://localhost:5000)
+- To build for a different architecture (e.g., for cloud deployment):
+
+```sh
+docker build --platform=linux/amd64 -t sqlgen-backend .
+```
+
+### AI Service
+
+You can create a Dockerfile for the AI service (not included by default).  
+Make sure to mount your `.env` and install dependencies.
+
+---
+
+## Swagger API Documentation
+
+- The backend provides Swagger UI at [http://localhost:5000/api-docs](http://localhost:5000/api-docs).
+- All endpoints are documented with request/response schemas and examples.
 
 ---
 
