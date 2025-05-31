@@ -1,13 +1,13 @@
 # SQLGen-AI
 
-**SQLGen-AI** is an end-to-end AI-powered application that transforms natural language queries into executable SQL using advanced LLMs (CodeLlama via Groq API). It features a modern React frontend, a Node.js/Express backend, and a FastAPI-based AI inference service. The system visualizes your database schema and relationships, and allows you to generate, view, and run SQL queries with ease.
+**SQLGen-AI** is an end-to-end AI-powered application that transforms natural language queries into executable SQL using advanced LLMs (**meta-llama/llama-4-maverick-17b-128e-instruct** via Groq API). It features a modern React frontend, a Node.js/Express backend, and a FastAPI-based AI inference service. The system visualizes your database schema and relationships, and allows you to generate, view, and run SQL queries with ease.
 
 ---
 
 ## Features
 
 - **Natural Language to SQL**: Enter plain English queries and get valid SQL instantly.
-- **AI-Powered**: Uses Meta's CodeLlama model via Groq API for accurate SQL generation.
+- **AI-Powered**: Uses Meta's meta-llama/llama-4-maverick-17b-128e-instruct model via Groq API for accurate SQL generation.
 - **Schema Visualization**: Interactive, auto-generated ER diagrams and schema explorer.
 - **Live Query Execution**: Run generated SQL directly on your MySQL database and view results.
 - **Modern UI**: Responsive, beautiful interface built with React, Tailwind CSS, and Lucide icons.
