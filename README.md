@@ -3,7 +3,7 @@
 **SQLGen-AI** is an end-to-end AI-powered application that transforms natural language queries into executable SQL using advanced LLMs (**meta-llama/llama-4-maverick-17b-128e-instruct** via Groq API). It features a modern React frontend, a Node.js/Express backend, and a FastAPI-based AI inference service. The system visualizes your database schema and relationships, and allows you to generate, view, and run SQL queries with ease.
 
 ---
-##Tech Stack
+**Tech Stack**
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
@@ -19,6 +19,8 @@
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+
+---
 
 ## Features
 
