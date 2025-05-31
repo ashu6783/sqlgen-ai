@@ -223,19 +223,21 @@ Make sure to mount your `.env` and install dependencies.
 
 ## Screenshots
 
-> _Add screenshots of the UI, schema explorer, and relationship diagram here._
+![image](https://github.com/user-attachments/assets/3445d992-a5d9-4696-a2bc-4e83f4569a5a)
 
----
+![Screenshot 2025-05-31 204333](https://github.com/user-attachments/assets/d68bd4ed-673d-41e7-8aa8-21b0ad5a73f2)
 
-## License
+![image](https://github.com/user-attachments/assets/d1b4304e-0074-48ae-8c0e-19a352bd439e)
 
-MIT License
+![image](https://github.com/user-attachments/assets/3c465bc0-5d42-4cff-ab04-b35bf97401c1)
+
+![image](https://github.com/user-attachments/assets/c859969b-1ff9-4e1c-9dce-76ead8b6d9c3)
 
 ---
 
 ## Acknowledgements
 
-- [Meta AI CodeLlama](https://ai.meta.com/research/models/codellama/)
+
 - [Groq API](https://console.groq.com/)
 - [React](https://react.dev/)
 - [FastAPI](https://fastapi.tiangolo.com/)
