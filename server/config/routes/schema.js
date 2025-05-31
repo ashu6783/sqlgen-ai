@@ -1,5 +1,6 @@
 import express from 'express';
 import getSchema from '../routes/getSchema.js';
+import { redis } from '../../index.js';
 
 /**
  * @swagger
@@ -63,7 +64,12 @@ import getSchema from '../routes/getSchema.js';
 const router= express.Router();
 
 router.get('/',async(req,res)=>{
+    const cacheKey='schema';
     try {
+        const cacheResult=await redis.get(cacheKey);
+        if(cacheResult){
+            return res.json({source:'cache',...JSON.parse(cacheResult)});
+        }
         const schema= await getSchema();
         res.json(schema);
     } catch (error) {

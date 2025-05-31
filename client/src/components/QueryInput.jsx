@@ -26,7 +26,7 @@ function QueryInput({ onQueryResult }) {
     };
 
     return (
-        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 py-6">
+        <div className="w-full max-w-6xl bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 mx-auto px-4 sm:px-6 py-6">
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/20 overflow-hidden relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-indigo-50/30 to-purple-50/50"></div>
 
@@ -153,8 +153,6 @@ function QueryInput({ onQueryResult }) {
                         </div>
                     </div>
                 </div>
-
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500"></div>
             </div>
         </div>
     );
