@@ -1,7 +1,7 @@
 // services/api.js
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'; // Changed default to 5000
-console.log('API_URL:', API_URL); // Debug the API URL
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'; 
+console.log('API_URL:', API_URL);
 
 export async function generateQuery(nlq) {
   console.log('Fetching from:', `${API_URL}/generate`);
