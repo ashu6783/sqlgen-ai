@@ -31,11 +31,20 @@ const redis=new Redis(process.env.REDIS_URL);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use(cors({
-  origin: 'http://localhost:5173 , https://sqlgen-ai.vercel.app/',
+  origin: function (origin, callback) {
+    const allowedOrigins = ['http://localhost:5173', 'https://sqlgen-ai.vercel.app'];
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type'], 
-  credentials: true 
+  allowedHeaders: ['Content-Type'],
+  credentials: true
 }));
+
 
 // Parse JSON bodies
 app.use(express.json());

@@ -15,7 +15,7 @@ function RelationshipDiagram() {
   const [locked, setLocked] = useState(false);
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
 
-  const API_URL = import.meta.env.VITE_API_URL || 'https://sqlgen-ai.onrender.com'; 
+  const API_URL = import.meta.env.VITE_API_URL || 'https://sqlgen-ai.onrender.com';
 
   useResizeObserver(containerRef, (entry) => {
     const { width, height } = entry.contentRect;
@@ -27,7 +27,7 @@ function RelationshipDiagram() {
   useEffect(() => {
     async function fetchSchema() {
       try {
-        const response = await fetch(`${API_URL}`/schema);
+        const response = await fetch(`${API_URL}/schema`);
         if (!response.ok) throw new Error('Failed to fetch schema');
         const schema = await response.json();
 
