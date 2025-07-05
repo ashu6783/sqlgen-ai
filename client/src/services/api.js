@@ -1,6 +1,6 @@
 // services/api.js
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://sqlgen-ai.onrender.com'; 
+const API_URL = import.meta.env.VITE_API_URL || 'https://localhost:5000'; 
 console.log('API_URL:', API_URL);
 
 export async function generateQuery(nlq) {

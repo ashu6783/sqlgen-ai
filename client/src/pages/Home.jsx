@@ -84,7 +84,7 @@ function Home() {
                 Start Generating
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
-              <button className="border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:bg-gray-800/50">
+              <button onClick={() => window.open('https://youtu.be/XBHkLXKXpFk', '_blank')} className="border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:bg-gray-800/50">
                 Watch Demo
               </button>
             </div>
@@ -147,13 +147,12 @@ function Home() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-white">AI Model</h3>
-                  <p className="text-purple-300">CodeLlama 7B via Ollama</p>
+                  <p className="text-purple-300">Meta-Llama via GroqCloud</p>
                 </div>
               </div>
               <p className="text-gray-300 leading-relaxed">
-                Leveraging Meta's CodeLlama 7B model running locally through Ollama 
-                for fast, private, and accurate natural language to SQL translation 
-                with no external API dependencies.
+                Leveraging Meta’s LLaMA 4 Maverick 17B (128E) Instruct model via GroqCloud's hosted API to enable fast,
+                 accurate, and privacy-conscious natural language to SQL translation.
               </p>
             </div>
 

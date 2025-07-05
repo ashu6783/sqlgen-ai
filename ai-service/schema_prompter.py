@@ -2,19 +2,22 @@ def create_prompt(nlq, schema):
     try:
         # Validate schema
         if not isinstance(schema, list):
-            raise ValueError(f"Schema must be a list, got {type(schema)}: {schema}")
+            raise ValueError("Schema must be a list, got {}: {}".format(type(schema), schema))
         for table in schema:
             if not isinstance(table, dict) or 'table' not in table or 'columns' not in table:
-                raise ValueError(f"Invalid table format: {table}")
+                raise ValueError("Invalid table format: {}".format(table))
             if not isinstance(table['columns'], list):
-                raise ValueError(f"Columns must be a list, got {type(table['columns'])}")
+                raise ValueError("Columns must be a list, got {}".format(type(table['columns'])))
             for col in table['columns']:
                 if not isinstance(col, dict) or 'name' not in col or 'type' not in col:
-                    raise ValueError(f"Invalid column format: {col}")
+                    raise ValueError("Invalid column format: {}".format(col))
 
         schema_str = "\n".join(
             [
-                f"Table: {table['table']}\nColumns: {', '.join([f'{col['name']} ({col['type']})' for col in table['columns']])}"
+                "Table: {table}\nColumns: {cols}".format(
+                    table=table['table'],
+                    cols=', '.join(["{name} ({type})".format(name=col['name'], type=col['type']) for col in table['columns']])
+                )
                 for table in schema
             ]
         )
@@ -28,7 +31,7 @@ Relationships:
 - Table 'products' is linked to table 'order_items' via products.id = order_items.product_id
 """
 
-        prompt = f"""
+        prompt = """
 Given the following database schema:
 {schema_str}
 
@@ -49,7 +52,9 @@ SELECT c.first_name, c.last_name, SUM(o.amount) AS total_spent
 FROM customers c
 JOIN orders o ON c.id = o.customer_id
 GROUP BY c.id, c.first_name, c.last_name;
-"""
+""".format(schema_str=schema_str, relationships=relationships, nlq=nlq)
+
         return prompt
+
     except Exception as e:
-        raise ValueError(f"Failed to create prompt: {str(e)}")
+        raise ValueError("Failed to create prompt: {}".format(str(e)))

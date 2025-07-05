@@ -48,7 +48,7 @@ async def run_inference(prompt):
 async def generate_sql(request: QueryRequest):
     try:
         async with aiohttp.ClientSession() as session:
-            schema_url = os.getenv("SCHEMA_API_URL", "http://localhost:5000")
+            schema_url = os.getenv("SCHEMA_API_URL")
             async with session.get(f"{schema_url}/schema") as response:
                 if response.status != 200:
                     raise HTTPException(status_code=500, detail='Failed to fetch schema')
